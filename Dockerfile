@@ -20,7 +20,7 @@ RUN mkdir /output
 RUN chown cheri:cheri -R /output
 
 FROM base AS intermediate
-COPY --chown=cheri:cheri docker/cheribuild.json /home/cheri/.config/cheribuild.json
+COPY --chown=cheri:cheri cheribuild.json /home/cheri/.config/cheribuild.json
 USER cheri
 ARG builditems=sdk-morello-purecap
 WORKDIR /home/cheri/cheri/cheribuild
