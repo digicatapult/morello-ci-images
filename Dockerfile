@@ -15,6 +15,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN useradd -ms /bin/sh cheri
 COPY --chown=cheri:cheri cheribuild /home/cheri/cheri/cheribuild
+COPY --chown=cheri:cheri cheribsd /home/cheri/cheri/cheribsd
+COPY --chown=cheri:cheri morello-llvm-project /home/cheri/cheri/morello-llvm-project
+COPY --chown=cheri:cheri morello-qemu /home/cheri/cheri/morello-qemu
 RUN chown cheri:cheri -R /home/cheri
 RUN mkdir /output
 RUN chown cheri:cheri -R /output

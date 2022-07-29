@@ -1,3 +1,18 @@
+[submodule "morello-llvm-project"]
+	path = morello-llvm-project
+	url = https://git.morello-project.org/morello/llvm-project.git
+	branch = morello/dev
+	shallow = true
+[submodule "morello-qemu"]
+	path = morello-qemu
+	url = https://github.com/CTSRD-CHERI/qemu.git
+	branch = qemu-morello-merged
+	shallow = true
 [submodule "cheribuild"]
 	path = cheribuild
 	url = https://github.com/CTSRD-CHERI/cheribuild.git
+	shallow = true
+[submodule "cheribsd"]
+	path = cheribsd
+	url = https://github.com/CTSRD-CHERI/cheribsd.git
+	shallow = true
