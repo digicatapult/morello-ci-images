@@ -8,11 +8,6 @@ RUN apt-get update && apt-get install -y \
   flex cmake clang-12 lld-12 time \
   && rm -rf /var/lib/apt/lists/*
 
-# RUN git config --global http.sslVerify false
-# RUN cd /tmp && git clone https://github.com/arichardson/bmake && cd bmake \
-#  && ./configure --with-default-sys-path=/usr/local/share/mk --with-machine=amd64 --without-meta --without-filemon --prefix=/usr/local \
-#  && sh ./make-bootstrap.sh && make install && rm -rf /tmp/bmake
-
 RUN useradd -ms /bin/sh cheri
 COPY --chown=cheri:cheri cheribuild /home/cheri/cheri/cheribuild
 COPY --chown=cheri:cheri cheribsd /home/cheri/cheri/cheribsd
@@ -23,9 +18,9 @@ RUN mkdir /output
 RUN chown cheri:cheri -R /output
 
 FROM base AS intermediate
-COPY --chown=cheri:cheri cheribuild.json /home/cheri/.config/cheribuild.json
 USER cheri
-ARG builditems=sdk-morello-purecap
+COPY --chown=cheri:cheri cheribuild.json /home/cheri/.config/cheribuild.json
+ARG builditems="sdk-morello-purecap disk-image-minimal-morello-purecap"
 WORKDIR /home/cheri/cheri/cheribuild
 
 RUN ./cheribuild.py $builditems -d && rm -rf /home/cheri/cheri
