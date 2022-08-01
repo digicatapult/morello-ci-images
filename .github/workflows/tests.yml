@@ -26,7 +26,7 @@ jobs:
   build-docker:
     name: 'build'
     needs:
-      - repo-ids
+      - repo_ids
     runs-on: ubuntu-latest
 
     steps:
