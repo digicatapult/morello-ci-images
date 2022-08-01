@@ -24,9 +24,9 @@ jobs:
           echo "::set-output name=REPO_NAME::$REPO_NAME"
           echo "::set-output name=ORG_NAME::$ORG_NAME"
   build-docker:
-    name: 'repo-ids'
+    name: 'build'
     needs:
-      - preconditions
+      - repo-ids
     runs-on: ubuntu-latest
 
     steps:
