@@ -13,7 +13,6 @@ COPY --chown=cheri:cheri cheribuild /home/cheri/cheri/cheribuild
 COPY --chown=cheri:cheri cheribsd /home/cheri/cheri/cheribsd
 COPY --chown=cheri:cheri morello-llvm-project /home/cheri/cheri/morello-llvm-project
 COPY --chown=cheri:cheri morello-qemu /home/cheri/cheri/morello-qemu
-RUN chown cheri:cheri -R /home/cheri
 RUN mkdir /output
 RUN chown cheri:cheri -R /output
 
@@ -27,7 +26,7 @@ RUN ./cheribuild.py $builditems -d && rm -rf /home/cheri/cheri
 
 FROM bitnami/minideb:buster as prod
 
-RUN install_packages libglib2.0-dev libpixman-1-dev bison groff-base libarchive-dev
+RUN install_packages libglib2.0-dev libpixman-1-dev bison groff-base libarchive-dev make
 RUN useradd -ms /bin/sh cheri
 USER cheri
 COPY --from=intermediate /output /home/cheri
