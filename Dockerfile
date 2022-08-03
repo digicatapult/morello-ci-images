@@ -24,10 +24,12 @@ WORKDIR /home/cheri/cheri/cheribuild
 
 RUN ./cheribuild.py $builditems -d && rm -rf /home/cheri/cheri
 
-FROM bitnami/minideb:buster as prod
+FROM ubuntu:20.04 as prod
 
-RUN install_packages libglib2.0-dev libpixman-1-dev bison groff-base libarchive-dev make
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y libglib2.0-dev libpixman-1-dev bison groff-base libarchive-dev make && rm -rf /var/lib/apt/lists/*
 RUN useradd -ms /bin/sh cheri
 USER cheri
-COPY --from=intermediate /output /home/cheri
+COPY --chown=cheri:cheri --from=intermediate /output /home/cheri
 ENV PATH /home/cheri/morello-sdk/bin:$PATH
