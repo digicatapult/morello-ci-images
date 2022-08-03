@@ -1,0 +1,13 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# Editors and IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# Misc
+.DS_Store
+.env
