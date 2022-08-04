@@ -1,5 +1,8 @@
 {
   "source-root": "/home/cheri/cheri",
   "output-root": "/output",
-  "skip-update": true
+  "skip-update": true,
+  "disk-image-minimal": {
+    "extra-files": "/home/cheri/cheri/extra-files"
+  }
 }
