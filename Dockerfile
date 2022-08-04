@@ -13,6 +13,7 @@ COPY --chown=cheri:cheri cheribuild /home/cheri/cheri/cheribuild
 COPY --chown=cheri:cheri cheribsd /home/cheri/cheri/cheribsd
 COPY --chown=cheri:cheri morello-llvm-project /home/cheri/cheri/morello-llvm-project
 COPY --chown=cheri:cheri morello-qemu /home/cheri/cheri/morello-qemu
+COPY --chown=cheri:cheri extra-files /home/cheri/cheri/extra-files
 RUN mkdir /output
 RUN chown cheri:cheri -R /output
 
