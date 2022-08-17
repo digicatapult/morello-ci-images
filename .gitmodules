@@ -13,3 +13,7 @@
 	url = https://github.com/CTSRD-CHERI/cheribuild.git
 	shallow = true
 
+[submodule "cheribsd"]
+	path = cheribsd
+	url = https://github.com/CTSRD-CHERI/cheribsd.git
+	branch = caprevoke

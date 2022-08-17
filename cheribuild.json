@@ -4,5 +4,10 @@
   "skip-update": true,
   "disk-image-minimal": {
     "extra-files": "/home/cheri/cheri/extra-files"
+  },
+  "cheribsd": {
+    "source-directory": "/home/cheri/cheri/cheribsd",
+    "caprevoke-kernel": true,
+    "build-options": [ "-DWITH_CHERI_CAPREVOKE", "-DWITH-DLMALLOC" ]
   }
 }
