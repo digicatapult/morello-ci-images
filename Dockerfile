@@ -34,3 +34,4 @@ RUN useradd -ms /bin/sh cheri
 USER cheri
 COPY --chown=cheri:cheri --from=intermediate /output /home/cheri
 ENV PATH /home/cheri/morello-sdk/bin:$PATH
+ENV PATH /home/cheri/sdk/bin:$PATH
