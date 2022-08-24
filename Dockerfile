@@ -37,7 +37,8 @@ FROM base AS llvm-build
 USER cheri
 ARG LLVM_BRANCH="morello/dev"
 ARG CLONE_OPTS="--single-branch --recurse-submodules --depth 1 --no-shallow-submodules"
-RUN <<EOF
+RUN --mount=type=tmpfs,target=/sources/morello-llvm-project \
+  --mount=type=tmpfs,target=/home/cheri/cheri <<EOF
   #!/usr/bin/env bash
   set -ex
   git clone https://git.morello-project.org/morello/llvm-project.git --branch $LLVM_BRANCH $CLONE_OPTS /sources/morello-llvm-project
@@ -50,7 +51,8 @@ FROM llvm-build AS qemu-build
 USER cheri
 ARG QEMU_BRANCH="qemu-morello-merged"
 ARG CLONE_OPTS="--single-branch --recurse-submodules --depth 1 --no-shallow-submodules"
-RUN <<EOF
+RUN RUN --mount=type=tmpfs,target=/sources/morello-qemu \
+  --mount=type=tmpfs,target=/home/cheri/cheri
   #!/usr/bin/env bash
   set -ex
   git clone https://github.com/CTSRD-CHERI/qemu.git --branch $QEMU_BRANCH $CLONE_OPTS /sources/morello-qemu
@@ -63,7 +65,8 @@ FROM qemu-build as bsd-build
 USER cheri
 ARG CHERIBSD_BRANCH="caprevoke"
 ARG CLONE_OPTS="--single-branch --recurse-submodules --depth 1 --no-shallow-submodules"
-RUN <<EOF
+RUN RUN --mount=type=tmpfs,target=/sources/cheribsd \
+  --mount=type=tmpfs,target=/home/cheri/cheri
   #!/usr/bin/env bash
   set -ex
   git clone https://github.com/CTSRD-CHERI/cheribsd.git --branch $CHERIBSD_BRANCH $CLONE_OPTS /sources/cheribsd
