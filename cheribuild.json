@@ -3,15 +3,13 @@
   "output-root": "/output",
   "skip-update": true,
   "disk-image-minimal": {
-    "extra-files": "/sources/extra-files"
+    "extra-files": "/sources/extra-files",
+    "use-qcow2": true
   },
   "cheribsd": {
     "caprevoke-kernel": true,
     "build-options": [ "-DWITH_CHERI_CAPREVOKE", "-DWITH-DLMALLOC" ],
     "source-directory": "/sources/cheribsd"
-  },
-  "cheribsd-morello-purecap": {
-    "kernel-config": "GENERIC-MORELLO-CAPREVOKE"
   },
   "morello-llvm": {
     "source-directory": "/sources/morello-llvm-project"
