@@ -3,20 +3,20 @@
   "output-root": "/output",
   "skip-update": true,
   "disk-image-minimal": {
-    "extra-files": "/home/cheri/cheri/extra-files"
+    "extra-files": "/sources/extra-files"
   },
   "cheribsd": {
     "caprevoke-kernel": true,
     "build-options": [ "-DWITH_CHERI_CAPREVOKE", "-DWITH-DLMALLOC" ],
-    "source-directory": "/home/cheri/cheri/cheribsd"
+    "source-directory": "/sources/cheribsd"
   },
   "cheribsd-morello-purecap": {
     "kernel-config": "GENERIC-MORELLO-CAPREVOKE"
   },
   "morello-llvm": {
-    "source-directory": "/home/cheri/cheri/morello-llvm"
+    "source-directory": "/sources/morello-llvm-project"
   },
   "qemu": {
-    "source-directory": "/home/cheri/cheri/morello-qemu"
+    "source-directory": "/sources/morello-qemu"
   }
 }
