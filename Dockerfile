@@ -52,7 +52,7 @@ USER cheri
 ARG QEMU_BRANCH="qemu-morello-merged"
 ARG CLONE_OPTS="--single-branch --recurse-submodules --depth 1 --no-shallow-submodules"
 RUN RUN --mount=type=tmpfs,target=/sources/morello-qemu \
-  --mount=type=tmpfs,target=/home/cheri/cheri
+  --mount=type=tmpfs,target=/home/cheri/cheri <<EOF
   #!/usr/bin/env bash
   set -ex
   git clone https://github.com/CTSRD-CHERI/qemu.git --branch $QEMU_BRANCH $CLONE_OPTS /sources/morello-qemu
@@ -66,7 +66,7 @@ USER cheri
 ARG CHERIBSD_BRANCH="caprevoke"
 ARG CLONE_OPTS="--single-branch --recurse-submodules --depth 1 --no-shallow-submodules"
 RUN RUN --mount=type=tmpfs,target=/sources/cheribsd \
-  --mount=type=tmpfs,target=/home/cheri/cheri
+  --mount=type=tmpfs,target=/home/cheri/cheri <<EOF
   #!/usr/bin/env bash
   set -ex
   git clone https://github.com/CTSRD-CHERI/cheribsd.git --branch $CHERIBSD_BRANCH $CLONE_OPTS /sources/cheribsd
