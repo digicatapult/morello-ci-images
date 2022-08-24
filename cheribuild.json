@@ -7,9 +7,16 @@
   },
   "cheribsd": {
     "caprevoke-kernel": true,
-    "build-options": [ "-DWITH_CHERI_CAPREVOKE", "-DWITH-DLMALLOC" ]
+    "build-options": [ "-DWITH_CHERI_CAPREVOKE", "-DWITH-DLMALLOC" ],
+    "source-directory": "/home/cheri/cheri/cheribsd"
   },
   "cheribsd-morello-purecap": {
     "kernel-config": "GENERIC-MORELLO-CAPREVOKE"
+  },
+  "morello-llvm": {
+    "source-directory": "/home/cheri/cheri/morello-llvm"
+  },
+  "qemu": {
+    "source-directory": "/home/cheri/cheri/morello-qemu"
   }
 }
